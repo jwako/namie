@@ -1,2 +1,19 @@
-<h1>Top#show</h1>
-<p>Find me in app/views/top/show.html.erb</p>
+<div class="row">
+	<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
+		<div class="jumbotron">
+		  <h1>Have a look at my Home</h1>
+		  <p>...</p>
+		  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-6 text-center">
+		<%= link_to "Users sign in", new_user_session_path, class: "btn btn-primary btn-lg" %>
+	</div>
+
+	<div class="col-lg-6 text-center">
+		<%= link_to "Supporters sign in", new_supporter_session_path, class: "btn btn-primary btn-lg" %>
+	</div>
+</div>
