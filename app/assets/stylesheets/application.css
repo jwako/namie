@@ -10,9 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap/dist/css/bootstrap
- *= require AdminLTE/css/font-awesome.min.css
- *= require AdminLTE/css/ionicons.min.css
+ *= require AdminLTE/css/bootstrap
+ *= require AdminLTE/css/font-awesome.css
+ *= require AdminLTE/css/ionicons.css
  *= require AdminLTE/css/AdminLTE.css
  *= require_tree .
  *= require_self
