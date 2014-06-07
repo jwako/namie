@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     post 'request_complete' => 'request#complete'
     get 'request_thanks' => 'request#thanks'
     get 'work/:url_token' => 'work#index', :as => :work
+    get 'work/:url_token/thanks' => 'work#thanks', :as => :work_thanks
   end
 
   devise_for :supporters
