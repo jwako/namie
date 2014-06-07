@@ -29,7 +29,7 @@
         <%= work.user.email %>
         </td>
         <td class="text-center">
-          <%= link_to "", class: "btn btn-lg btn-primary" do %>
+          <%= link_to s_work_path(work.url_token), class: "btn btn-lg btn-primary" do %>
             <i class="fa fa-video-camera"></i> 中継開始
           <% end %>
         </td>
@@ -42,4 +42,3 @@
     </div>
   </div>
 </div>
-<i class="wi wi-day-lightning">

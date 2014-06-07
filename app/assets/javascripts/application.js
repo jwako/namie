@@ -15,4 +15,3 @@
 //= require turbolinks
 //= require AdminLTE/js/bootstrap
 //= require AdminLTE/js/AdminLTE/app.js
-//= require_tree .
