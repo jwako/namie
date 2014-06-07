@@ -32,9 +32,13 @@
               <label for="exampleInputEmail1">この人にお願いする</label>
               <%= select :area, :name, Area.all.map{|t| [t.name, t.id]} %>
 
-              <% Supporter.all.each do |s| %>
+              <% Supporter.order(:id).each do |s| %>
                 <div class="radiobutton">
-                  <label><%= f.radio_button :supporter_id, s.id %> <%= s.profile.name %></label>
+                  <label>
+                    <%= f.radio_button :supporter_id, s.id %>
+                    <%= image_tag s.profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %>
+                    <%= s.profile.name %>
+                  </label>
                 </div>
               <% end %>
             </div>
