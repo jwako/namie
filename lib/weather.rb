@@ -54,6 +54,33 @@ class Weather
 			end
 		end
 
+		def weather_icon
+			case data.icon
+			when 'clear-day'
+				return "wi-day-sunny"
+			when 'clear-night'
+				return "wi-day-sunny"
+			when 'rain'
+				return "wi-rain"
+			when 'snow'
+				return "wi-snow"
+			when 'sleet'
+				return "wi-snow"
+			when 'wind'
+				return "wi-night-alt-cloudy-windy"
+			when 'fog'
+				return "wi-fog"
+			when 'cloudy'
+				return "wi-cloudy"
+			when 'partly-cloudy-day'
+				return "wi-cloudy"
+			when 'partly-cloudy-night'
+				return "wi-cloudy"
+			else
+				return ""
+			end
+		end
+
 		def temperature
 			data.temperature.round.to_s + "℃"
 		end
