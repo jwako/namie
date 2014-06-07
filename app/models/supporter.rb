@@ -15,6 +15,10 @@ class Supporter < ActiveRecord::Base
 
   after_create :create_profile
 
+  def profile
+    supporter_profile
+  end
+
   private
 
   def create_profile

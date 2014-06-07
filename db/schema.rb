@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607035051) do
+ActiveRecord::Schema.define(version: 20140607071220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140607035051) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "supporter_profiles", ["supporter_id"], name: "index_supporter_profiles_on_supporter_id", using: :btree
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20140607035051) do
     t.string   "profile_image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
@@ -141,6 +143,7 @@ ActiveRecord::Schema.define(version: 20140607035051) do
     t.text     "greeting_message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
   end
 
   add_index "works", ["supporter_id"], name: "index_works_on_supporter_id", using: :btree

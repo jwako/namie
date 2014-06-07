@@ -1,3 +1,16 @@
-<h1>U::Request#index</h1>
-<p>Find me in app/views/u/request/index.html.erb</p>
-<p><%= link_to '確認', u_request_confirm_path %></p>
+<h1>依頼</h1>
+<%= form_for(@work, url: u_request_confirm_path) do |f| %>
+  <p>訪問時間：<%= f.datetime_select :start_at %></p>
+  <p>訪問して欲しい場所：<%= f.text_field :address %></p>
+  <div class="form-group">
+    <label for="exampleInputEmail1">依頼内容(オプション)</label>
+    <% Commission.all.each do |c| %>
+      <div class="checkbox">
+        <label>
+          <%= check_box_tag "commissions[]", c.id %> <%= c.name %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+  <p><%= submit_tag '確認' %></p>
+<% end %>

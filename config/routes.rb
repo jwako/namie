@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :u do
     resource :home, controller: :home, only: :show
     get 'request' => 'request#index'
-    get 'request_confirm' => 'request#confirm'
+    post 'request_confirm' => 'request#confirm'
     post 'request_complete' => 'request#complete'
     get 'request_thanks' => 'request#thanks'
   end

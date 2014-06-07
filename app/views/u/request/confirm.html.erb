@@ -1,5 +1,12 @@
 <h1>U::Request#confirm</h1>
-<p>Find me in app/views/u/request/confirm.html.erb</p>
-<%= form_tag(u_request_complete_path, method: "post") do %>
-<%= submit_tag '完了' %>
+<p>user: <%= @work.user.profile.name %></p>
+<p>supporter: <%= @work.supporter.profile.name %></p>
+<p>start_at: <%= @work.start_at %></p>
+<% @work.commissions.each do |c| %>
+  <li><%= c.name %></li>
 <% end %>
+</ul>
+<%= form_tag(u_request_complete_path) do %>
+  <p><%= submit_tag 'ok' %></p>
+<% end %>
+<p><%= link_to 'back', u_request_path %></p>
