@@ -6,6 +6,37 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+user = User.create(
+	email: "user@namie.jp", 
+	password: '11111111'
+)
+user.user_profile.update_attributes(profile_image: "avatar1.png")
+
+s1 = Supporter.create(
+	email: "s1@namie.jp", 
+	password: '11111111'
+)
+s1.supporter_profile.update_attributes(profile_image: "avatar2.png")
+
+s2 = Supporter.create(
+	email: "s2@namie.jp", 
+	password: '11111111'
+)
+s2.supporter_profile.update_attributes(profile_image: "avatar3.png")
+
+s3 = Supporter.create(
+	email: "s3@namie.jp", 
+	password: '11111111'
+)
+s3.supporter_profile.update_attributes(profile_image: "avatar4.png")
+
+s4 = Supporter.create(
+	email: "s4@namie.jp", 
+	password: '11111111'
+)
+s4.supporter_profile.update_attributes(profile_image: "avatar5.png")
+
+
 Commission.create(name: "お家訪問");
 Commission.create(name: "草むしり");
 Commission.create(name: "お墓参り");
