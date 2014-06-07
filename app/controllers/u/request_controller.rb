@@ -7,9 +7,8 @@ class U::RequestController < ApplicationController
 
   def confirm
     @work = Work.new(work_params)
-    @work.commissions = Commission.find(params[:commissions])
+    @work.commissions = Commission.find(params[:commissions]) if params[:commissions].present?
     @work.user = current_user
-    @work.supporter = Supporter.where(id: 1).first
 
     return render :index unless @work.valid?
     @work.save!

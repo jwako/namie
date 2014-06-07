@@ -10,32 +10,46 @@ user = User.create(
 	email: "user@namie.jp", 
 	password: '11111111'
 )
-user.user_profile.update_attributes(profile_image: "avatar1.png")
+user.user_profile.update_attributes(
+  profile_image: "avatar1.png",
+  name: "山田 太郎"
+)
 
 s1 = Supporter.create(
 	email: "s1@namie.jp", 
 	password: '11111111'
 )
-s1.supporter_profile.update_attributes(profile_image: "avatar2.png")
+s1.supporter_profile.update_attributes(
+  profile_image: "avatar2.png",
+  name: "浪江 次郎"
+)
 
 s2 = Supporter.create(
 	email: "s2@namie.jp", 
 	password: '11111111'
 )
-s2.supporter_profile.update_attributes(profile_image: "avatar3.png")
+s2.supporter_profile.update_attributes(
+  profile_image: "avatar3.png",
+  name: "伊藤 園"
+)
 
 s3 = Supporter.create(
 	email: "s3@namie.jp", 
 	password: '11111111'
 )
-s3.supporter_profile.update_attributes(profile_image: "avatar4.png")
+s3.supporter_profile.update_attributes(
+  profile_image: "avatar4.png",
+  name: "佐藤 文"
+)
 
 s4 = Supporter.create(
 	email: "s4@namie.jp", 
 	password: '11111111'
 )
-s4.supporter_profile.update_attributes(profile_image: "avatar5.png")
-
+s4.supporter_profile.update_attributes(
+  profile_image: "avatar5.png",
+  name: "内藤 博文"
+)
 
 Commission.create(name: "お家訪問");
 Commission.create(name: "草むしり");

@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require AdminLTE/js/bootstrap
 //= require AdminLTE/js/AdminLTE/app.js
+//= require jquery.readyselector
 //= require_tree .

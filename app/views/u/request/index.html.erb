@@ -1,16 +1,49 @@
-<h1>依頼</h1>
-<%= form_for(@work, url: u_request_confirm_path) do |f| %>
-  <p>訪問時間：<%= f.datetime_select :start_at %></p>
-  <p>訪問して欲しい場所：<%= f.text_field :address %></p>
-  <div class="form-group">
-    <label for="exampleInputEmail1">依頼内容(オプション)</label>
-    <% Commission.all.each do |c| %>
-      <div class="checkbox">
-        <label>
-          <%= check_box_tag "commissions[]", c.id %> <%= c.name %>
-        </label>
-      </div>
-    <% end %>
+<div class="row">
+  <!-- left column -->
+  <div class="col-md-6">
+    <!-- general form elements -->
+    <div class="box box-primary">
+      <div class="box-header">
+        <h3 class="box-title">訪問依頼</h3>
+      </div><!-- /.box-header -->
+      <!-- form start -->
+      <%= form_for(@work, url: u_request_confirm_path) do |f| %>
+        <form role="form">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">訪問日時</label>
+              <%= f.datetime_select :start_at %>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">訪問場所</label>
+              <%= f.text_area :address, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">依頼内容(オプション)</label>
+              <% Commission.all.each do |c| %>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "commissions[]", c.id %> <%= c.name %>
+                  </label>
+                </div>
+              <% end %>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">この人にお願いする</label>
+              <%= select :area, :name, Area.all.map{|t| [t.name, t.id]} %>
+
+              <% Supporter.all.each do |s| %>
+                <div class="radiobutton">
+                  <label><%= f.radio_button :supporter_id, s.id %> <%= s.profile.name %></label>
+                </div>
+              <% end %>
+            </div>
+            <div class="box-footer clearfix">
+              <%= f.submit "確認", class: "btn btn-lg btn-primary pull-right" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div><!-- /.box -->
   </div>
-  <p><%= submit_tag '確認' %></p>
-<% end %>
+</div>
