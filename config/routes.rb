@@ -6,12 +6,16 @@ Rails.application.routes.draw do
 
   devise_for :users
   namespace :u do
-	  resource :home, controller: :home, only: :show
-	end
+    resource :home, controller: :home, only: :show
+    get 'request' => 'request#index'
+    get 'request_confirm' => 'request#confirm'
+    post 'request_complete' => 'request#complete'
+    get 'request_thanks' => 'request#thanks'
+  end
 
   devise_for :supporters
   namespace :s do
-	  resource :home, controller: :home, only: :show
-	end
+    resource :home, controller: :home, only: :show
+  end
 
 end
