@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :u do
-  get 'work/index'
-  end
-
   get '/', to: 'top#show'
   resource :top, controller: :top, only: :show
   root :to => 'top#show'

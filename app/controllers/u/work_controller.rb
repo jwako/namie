@@ -1,5 +1,8 @@
 class U::WorkController < ApplicationController
-  def index
+	layout "user_rtc"
 
+  def index
+  	@work = Work.find_by(url_token: params[:url_token])
   end
+
 end
