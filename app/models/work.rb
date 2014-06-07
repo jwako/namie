@@ -5,4 +5,17 @@ class Work < ActiveRecord::Base
 	has_many :commissions, :through => :work_commissions
 
   validates :supporter, :presence => true
+  validates_uniqueness_of :url_token
+  validates_presence_of :url_token
+  after_initialize :set_url_token
+
+  private
+  def set_url_token
+    self.url_token = self.url_token.blank? ? generate_url_token : self.url_token
+  end
+
+  def generate_url_token
+    tmp_token = SecureRandom.urlsafe_base64(6)
+    self.class.where(:url_token => tmp_token).blank? ? tmp_token : generate_url_token
+  end
 end

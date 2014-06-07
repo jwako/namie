@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :u do
+  get 'work/index'
+  end
+
   get '/', to: 'top#show'
   resource :top, controller: :top, only: :show
   root :to => 'top#show'
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
     post 'request_confirm' => 'request#confirm'
     post 'request_complete' => 'request#complete'
     get 'request_thanks' => 'request#thanks'
+    get 'work/:url_token' => 'work#index', :as => :work
   end
 
   devise_for :supporters

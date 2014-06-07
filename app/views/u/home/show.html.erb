@@ -1,3 +1,47 @@
-<h1>U::Home#show</h1>
-<p>Find me in app/views/u/home/show.html.erb</p>
-<p><%= link_to '依頼する', u_request_path %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+    <div class="box-header">
+    <h3 class="box-title">マイページ</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body">
+      <p><%= link_to '新規に訪問を依頼する', u_request_path, class: "btn btn-lg btn-primary"%></p>
+      <h4>現在依頼中の訪問</h4>
+      <table class="table table-striped">
+      <tr>
+        <th class="col-lg-3 text-center">開始日時</th>
+        <th class="col-lg-3 text-center">依頼場所</th>
+        <th class="col-lg-2 text-center">依頼内容</th>
+        <th class="col-lg-2 text-center">サポーター</th>
+        <th class="col-lg-2 text-center"></th>
+      </tr>
+      <% @works.each do |work| %>
+      <tr>
+        <td class="text-center"><%= work.start_at.try(:strftime, "%Y/%d/%m %H:%M") %> 〜 <%= work.end_at.try(:strftime, "%H:%M") %></td>
+        <td><%= work.address %></td>
+        <td>
+        <ul class="list-unstyled">
+        <% work.commissions.each do |c| %>
+          <li><span class="label label-success"><i class="fa fa-tag"></i> <%= c.name %></span></li>
+        <% end %>
+        </ul>
+        </td>
+        <td class="text-center">
+        <%= image_tag work.supporter.profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %><br>
+        <%= work.supporter.profile.name %>
+        </td>
+        <td class="text-center">
+          <%= link_to u_work_path(work.url_token), class: "btn btn-lg btn-primary" do %>
+            <i class="fa fa-video-camera"></i> 中継開始
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+      </table>
+    </div><!-- /.box-body -->
+    <div class="box-footer clearfix">
+    </div>
+    </div>
+  </div>
+</div>
+<i class="wi wi-day-lightning"></i>
