@@ -30,6 +30,8 @@ gem 'spring',        group: :development
 
 gem 'bower-rails', '~> 0.7.3'
 gem 'devise'
+gem 'forecast_io'
+gem "geocoder"
 
 # RSpec
 group :test, :development do
