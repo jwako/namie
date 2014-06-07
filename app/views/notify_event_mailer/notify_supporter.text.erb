@@ -1,0 +1,13 @@
+<%= @supporter.email %> さん、
+
+依頼したイベントの15分前になりました。
+以下のURLからアクセスして、リアルタイム中継を開始してください。
+
+<%= @work.url_token %>
+
+========
+依頼内容
+========
+開始日時: <%= @work.start_at.strftime("%Y/%m/%d %H:%M") %>
+終了日時: <%= @work.end_at.strftime("%Y/%m/%d %H:%M") %>
+
