@@ -19,6 +19,7 @@ class U::RequestController < ApplicationController
   end
 
   def thanks
+    @work = Work.where(user_id: current_user.id).last
   end
 
   private

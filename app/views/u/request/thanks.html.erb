@@ -1,3 +1,14 @@
-<h1>U::Request#thanks</h1>
-<p>Find me in app/views/u/request/thanks.html.erb</p>
-<p><%= link_to 'マイページへ', u_home_path %></p>
+ <div class="row">
+  <div class="col-md-12">
+    <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">登録完了</h3>
+    </div><!-- /.box-header -->
+    <div class="box-body text-center">
+      <h4>ご登録ありがとうございます。</h4>
+      <h4>確認メールをお送りしました。</h4>
+      <h4><%= @work.start_at.strftime("%m月%d日 %H:%M") %>にマイページにアクセスください</h4>
+      <h4><%= link_to 'マイページに戻る', u_home_path %></h4>
+    </div><!-- /.box-body -->
+  </div>
+</div>
