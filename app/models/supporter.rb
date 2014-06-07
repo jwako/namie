@@ -12,7 +12,8 @@ class Supporter < ActiveRecord::Base
   has_many :areas, :through => :supporter_areas
   has_many :supporter_services
   has_many :weeks, :through => :supporter_services
-
+  has_many :works
+  
   after_create :create_profile
 
   private

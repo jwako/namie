@@ -1,2 +1,24 @@
-<h1>S::Home#show</h1>
-<p>Find me in app/views/s/home/show.html.erb</p>
+ <div class="row">
+  <div class="col-md-12">
+  <table class="table table-hover">
+  <tr>
+  	<th>開始日時</th>
+  	<th>終了日時</th>
+  	<th>依頼内容</th>
+  	<th>サポーター</th>
+  </tr>
+  <% @works.each do |work| %>
+  <tr>
+  	<td><%= work.start_at.strftime("%Y/%d/%m %H:%M") %></td>
+  	<td><%= work.end_at.strftime("%H:%M") %></td>
+  	<td>
+  	<% work.commissions.each do |c| %>
+  		<p><%= c.name %></p>
+  	<% end %>
+  	</td>
+  	<td></td>
+  </tr>
+  <% end %>
+  </table>
+  </div>
+</div>
