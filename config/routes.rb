@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   namespace :s do
 	  resource :home, controller: :home, only: :show
     resource :profiles, only: [:edit, :update]
+    resources :work, only: :show
 	end
 
 end
