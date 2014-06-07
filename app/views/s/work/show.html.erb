@@ -8,7 +8,7 @@
       </div>
         -->
       <div id="video-container" style="width:30%">
-          作業風景<br/>
+          <p>作業風景</p>
           <video id="my-video" autoplay></video>
           依頼者<br/>
           <video id="their-video" muted="true" style="position:relative; top:10px; left:10px" autoplay></video>
@@ -52,8 +52,7 @@
           <p><a href="#" class="pure-button pure-button-error" id="end-call">作業を終了</a></p>
         </div>
 
-          <p></p>
-          現地の放射線量<br/>
+          <h2>現地の放射線量</h2>
           <img src="http://www.fmu.ac.jp/home/lib/radiation/motion.jpg" style="width:240px; height:120px;">
           <p></p>
           <b>今日の作業</b><br/>
@@ -64,7 +63,7 @@
       </div>
   </div>
   <div>
-      <b>目的地</b>：浪江町権現堂北深町５<br/>
+      <b>目的地</b>：<%= @work.address %><br/>
       <div id="map-canvas-1" style="width:80%; height:400px;"></div>
       <!--
       <div id="map-canvas-2" style="position:relative; top:-140px; left:-160px; width:140px; height:140px;"></div>
