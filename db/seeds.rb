@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Commission.create(name: "お家訪問");
+Commission.create(name: "草むしり");
+Commission.create(name: "お墓参り");
+Commission.create(name: "放射線測定");
+Commission.create(name: "ペットの世話");
+
+
