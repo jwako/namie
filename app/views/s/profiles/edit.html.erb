@@ -1,0 +1,61 @@
+ <div class="row">
+  <!-- left column -->
+  <div class="col-md-6">
+      <!-- general form elements -->
+      <div class="box box-primary">
+          <div class="box-header">
+              <h3 class="box-title">プロフィール登録</h3>
+          </div><!-- /.box-header -->
+          <!-- form start -->
+          <%= form_for @profile, url: s_profiles_path do |f| %>
+          <form role="form">
+              <div class="box-body">
+                  <div class="form-group">
+                  	<label for="exampleInputEmail1">あなたのプロフィール</label>
+                  	<%= f.fields_for :supporter_profile, @profile.supporter_profile do |p| %>
+                  		<%= p.text_area :description, class: "form-control" %>
+                  	<% end %>
+                  </div>
+                  <div class="form-group">
+                  	<label for="exampleInputEmail1">あなたのできること</label>
+                  	<% Commission.all.each do |c| %>
+                  	<div class="checkbox">
+                      <label>
+                  			<%= check_box_tag "commissions[]", c.id, @profile.commissions.include?(c) %> <%= c.name %>
+                  		</label>
+                  	</div>
+                  	<% end %>
+                  </div>
+                  <div class="form-group">
+                  	<label for="exampleInputEmail1">あなたの通える地域</label>
+                  	<% Area.all.each do |a| %>
+                  	<div class="checkbox">
+                      <label>
+                  			<%= check_box_tag "areas[]", a.id, @profile.areas.include?(a) %> <%= a.name %>
+                  		</label>
+                  	</div>
+                  	<% end %>
+                  </div>
+                  <div class="form-group">
+                  	<label for="exampleInputEmail1">あなたの通える予定</label>
+                  	<% Week.all.each do |w| %>
+                  	<% supporter_service = @profile.supporter_services.find_by({week_id: w.id}) %>
+                  	<div class="checkbox">
+                      <label>
+                  			<%= check_box_tag "weeks[]", w.id, @profile.weeks.include?(w) %> <%= w.name %>
+                  		</label>
+
+                  		<%= text_field_tag "start[#{w.id}]", supporter_service.try(:start_time), placeholder: "開始可能時刻" %>
+                  		<%= text_field_tag "end[#{w.id}]", supporter_service.try(:end_time), placeholder: "終了可能時刻" %>
+                  	</div>
+                  	<% end %>
+                  </div>
+              </div><!-- /.box-body -->
+
+              <div class="box-footer clearfix">
+              	<%= f.submit "プロフィールを更新", class: "btn btn-lg btn-primary pull-right" %>
+              </div>
+          <% end %>
+      </div><!-- /.box -->
+	</div>
+</div>

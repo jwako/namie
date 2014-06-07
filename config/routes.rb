@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :supporters
   namespace :s do
 	  resource :home, controller: :home, only: :show
+    resource :profiles, only: [:edit, :update]
 	end
 
 end

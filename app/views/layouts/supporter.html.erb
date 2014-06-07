@@ -49,7 +49,7 @@
 	                        <!-- Menu Footer-->
 	                        <li class="user-footer">
 	                            <div class="pull-left">
-	                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+	                            	<%= link_to "Profile", edit_s_profiles_path, class: "btn btn-default btn-flat", data: {no_turbolink: true} %>
 	                            </div>
 	                            <div class="pull-right">
 	                            	<%= link_to "Sign out", destroy_supporter_session_path, { method: :delete, class: "btn btn-default btn-flat" } %>
@@ -80,8 +80,13 @@
 	            <!-- sidebar menu: : style can be found in sidebar.less -->
 	            <ul class="sidebar-menu">
 	                <li class="active">
-	                    <%= link_to s_home_path do %>
-	                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+	                    <%= link_to s_home_path, data: {no_turbolink: true} do %>
+	                        <i class="fa fa-dashboard"></i> <span>ダッシュボード</span>
+	                    <% end %>
+	                </li>
+	                <li>
+	                    <%= link_to edit_s_profiles_path, data: {no_turbolink: true} do %>
+	                        <i class="fa fa-user"></i> <span>プロフィール</span>
 	                    <% end %>
 	                </li>
 					    </ul>

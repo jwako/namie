@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607031045) do
+ActiveRecord::Schema.define(version: 20140607035051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 20140607031045) do
   add_index "supporter_commissions", ["supporter_id"], name: "index_supporter_commissions_on_supporter_id", using: :btree
 
   create_table "supporter_profiles", force: true do |t|
-    t.integer  "user_id",       null: false
+    t.integer  "supporter_id",  null: false
     t.string   "profile_image"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "supporter_profiles", ["user_id"], name: "index_supporter_profiles_on_user_id", using: :btree
+  add_index "supporter_profiles", ["supporter_id"], name: "index_supporter_profiles_on_supporter_id", using: :btree
 
   create_table "supporter_services", force: true do |t|
     t.integer  "supporter_id", null: false
