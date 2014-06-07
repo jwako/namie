@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+.slowly {
+	-webkit-transition-property: left, top, width, height;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-timing-function: default;
+	-webkit-transition-delay:0s;
+	-moz-transition-property: left, top, width, height;
+	-moz-transition-duration: 1s;
+	-moz-transition-timing-function: default;
+	-moz-transition-delay:0s;
+	transition-property: left, top, width, height;
+	transition-duration: 1s;
+	transition-timing-function: default;
+	transition-delay:0s;
+}
+
+	
