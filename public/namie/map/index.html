@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="./js/code1.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="map-canvas-1" style="width:400px; height:200px; margin:10px; padding:10px;"></div>
+    <div id="map-canvas-2" style="width:400px; height:200px; margin:10px; padding:10px;"></div>
+    <input type="button" id="loc1" value="位置(1)" onclick="setLocation(1)" />
+    <input type="button" id="loc2" value="位置(2)" onclick="setLocation(2)" />
+    <input type="button" id="loc3" value="位置(3)" onclick="setLocation(3)" />
+    <input type="button" id="pan1" value="<<" onclick="panLocation(-350, 0)" />
+    <input type="button" id="pan2" value=">>" onclick="panLocation(+350, 0)" />
+
+    <input type="button" id="australia" value="オーストラリア" onclick="toAustralia()" />
+    <input type="button" id="europa" value="ヨーロッパ" onclick="toEuropa()" />
+    <input type="button" id="samerica" value="南アメリカ" onclick="toSAmerica()" />
+
+  </body>
+</html>
