@@ -14,7 +14,7 @@
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body class="skin-blue">
+<body class="skin-black">
 	<!-- header logo: style can be found in header.less -->
 	<header class="header">
 	    <%= link_to s_home_path, class: "logo" do %>
@@ -40,7 +40,7 @@
 	                    <ul class="dropdown-menu">
 	                        <!-- User image -->
 	                        <li class="user-header bg-light-blue">
-	                            <%= image_tag "avatar3.png", class: "img-circle", alt: "User Image" %>
+	                            <%= image_tag current_supporter.supporter_profile.profile_image, class: "img-circle", alt: "User Image" %>
 	                            <p>
 	                                <%= current_supporter.email %>
 	                                <small>Member since Nov. 2012</small>
@@ -69,7 +69,7 @@
 	            <!-- Sidebar user panel -->
 	            <div class="user-panel">
 	                <div class="pull-left image">
-	                  <%= image_tag "avatar3.png", class: "img-circle", alt: "User Image" %>
+	                  <%= image_tag current_supporter.supporter_profile.profile_image, class: "img-circle", alt: "User Image" %>
 	                </div>
 	                <div class="pull-left info">
 	                    <p></p>
