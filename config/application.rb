@@ -33,5 +33,11 @@ module Namie
 
     # Add assets path for fonts
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components', 'AdminLTE', 'fonts')
+
+    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    
   end
 end

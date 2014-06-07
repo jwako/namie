@@ -14,6 +14,7 @@
  *= require AdminLTE/css/font-awesome.css
  *= require AdminLTE/css/ionicons.css
  *= require AdminLTE/css/AdminLTE.css
+ *= require weather-icons.css
  *= require_tree .
  *= require_self
  */

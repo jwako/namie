@@ -15,12 +15,12 @@
       </tr>
       <% @works.each do |work| %>
       <tr>
-        <td class="text-center"><%= work.start_at.strftime("%Y/%d/%m %H:%M") %> 〜 <%= work.end_at.strftime("%H:%M") %></td>
-        <td></td>
+        <td class="text-center"><%= work.start_at.try(:strftime, "%Y/%d/%m %H:%M") %> 〜 <%= work.end_at.try(:strftime, "%H:%M") %></td>
+        <td><%= work.address %></td>
         <td>
-        <ul>
+        <ul class="list-unstyled">
         <% work.commissions.each do |c| %>
-          <li><%= c.name %></li>
+          <li><span class="label label-success"><i class="fa fa-tag"></i> <%= c.name %></span></li>
         <% end %>
         </ul>
         </td>
@@ -28,7 +28,11 @@
         <%= image_tag work.user.user_profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %><br>
         <%= work.user.email %>
         </td>
-        <td class="text-center"><%= link_to "中継開始", "", class: "btn btn-lg btn-primary" %></td>
+        <td class="text-center">
+          <%= link_to "", class: "btn btn-lg btn-primary" do %>
+            <i class="fa fa-video-camera"></i> 中継開始
+          <% end %>
+        </td>
       </tr>
       <% end %>
       </table>
@@ -38,3 +42,4 @@
     </div>
   </div>
 </div>
+<i class="wi wi-day-lightning">
