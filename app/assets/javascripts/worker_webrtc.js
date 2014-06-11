@@ -54,7 +54,7 @@ function step1 () {
     // Get audio/video stream
     navigator.getUserMedia({audio: true, video: true}, function(stream){
         // Set your video displays
-        $('#my-video').prop('src', URL.createObjectURL(stream));
+        $('#w-my-video').prop('src', URL.createObjectURL(stream));
 
         window.localStream = stream;
         step2();
@@ -75,7 +75,7 @@ function step3 (call) {
 
     // Wait for stream on the call, then set peer video display
     call.on('stream', function(stream){
-        $('#their-video').prop('src', URL.createObjectURL(stream));
+        $('#w-their-video').prop('src', URL.createObjectURL(stream));
     });
 
     // UI stuff

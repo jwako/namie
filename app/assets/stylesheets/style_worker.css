@@ -1,4 +1,4 @@
-﻿/*!
+/*!
 Pure v0.3.0
 Copyright 2013 Yahoo! Inc. All rights reserved.
 Licensed under the BSD License.
@@ -40,22 +40,21 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
-#my-video {
-  width: 100%;
+#w-video-container {
+  padding: 25px;
+  text-align: center;
+}
+
+#w-my-video {
+  width: 40%;
   height: auto;
   background-color: #eee;
 }
 
-#their-video {
-  width: 50%;
-    height: auto;
-//  max-height: 200px;
+#w-their-video {
+  width: 40%;
+  height: auto;
   background-color: #eee;
-}
-
-#video-container {
-  padding: 25px;
-  text-align: center;
 }
 
 //#step1-error, #step2, #step3 {
@@ -65,7 +64,7 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
   font-weight: bold;
 }
 
-#storedImage {
+#w-storedImage {
     background: rgba(0, 0, 0, 0.5);
     //background-color: #000;
 }

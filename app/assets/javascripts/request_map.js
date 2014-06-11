@@ -21,8 +21,8 @@ function initialize() {
         mapTypeControl: false,
         navigationControl: false
     };
-    map1 = new google.maps.Map(document.getElementById('map-canvas-1'), mapOptions);
-    map2 = new google.maps.Map(document.getElementById('map-canvas-2'), mapOptionsWorker);
+    map1 = new google.maps.Map(document.getElementById('map-canvas-target'), mapOptions);
+    map2 = new google.maps.Map(document.getElementById('map-canvas-current'), mapOptionsWorker);
 
     var marker = new google.maps.Marker({
         position: loc,

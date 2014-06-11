@@ -50,6 +50,10 @@ $(function(){
     step1();
 });
 
+function destroy() {
+    peer.destroy();
+}
+
 function step1 () {
     // Get audio/video stream
     navigator.getUserMedia({audio: true, video: true}, function(stream){
