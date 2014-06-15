@@ -39,7 +39,7 @@ $(function() {
     });
 
     //Activate tooltips
-    // $("[data-toggle='tooltip']").tooltip();
+    $("[data-toggle='tooltip']").tooltip();
 
     /*     
      * Add collapse and remove events to boxes
@@ -62,11 +62,11 @@ $(function() {
      * ADD SLIMSCROLL TO THE TOP NAV DROPDOWNS
      * ---------------------------------------
      */
-    // $(".navbar .menu").slimscroll({
-    //     height: "200px",
-    //     alwaysVisible: false,
-    //     size: "3px"
-    // }).css("width", "100%");
+    $(".navbar .menu").slimscroll({
+        height: "200px",
+        alwaysVisible: false,
+        size: "3px"
+    }).css("width", "100%");
 
     /*
      * INITIALIZE BUTTON TOGGLE
@@ -89,7 +89,7 @@ $(function() {
     });
 
     /* Sidebar tree view */
-    // $(".sidebar .treeview").tree();
+    $(".sidebar .treeview").tree();
 
     /* 
      * Make sure that the sidebar is streched full height
@@ -129,10 +129,10 @@ $(function() {
      * iCheck plugin in.
      * You can find the documentation at http://fronteed.com/iCheck/
      */
-    // $("input[type='checkbox'], input[type='radio']").iCheck({
-    //     checkboxClass: 'icheckbox_minimal',
-    //     radioClass: 'iradio_minimal'
-    // });
+    $("input[type='checkbox'], input[type='radio']").iCheck({
+        checkboxClass: 'icheckbox_minimal',
+        radioClass: 'iradio_minimal'
+    });
 
 });
 function fix_sidebar() {

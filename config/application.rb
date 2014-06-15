@@ -41,6 +41,6 @@ module Namie
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    
+    config.assets.paths << "#{Rails.root}/vendor/assets/bower_components/AdminLTE/css/iCheck"
   end
 end
