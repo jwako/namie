@@ -2,11 +2,8 @@
  * Created by workshop on 2014/06/07.
  */
 $(function() {
-    $('#store-image').click(function () {
-//        var canvas = document.getElementById("their-video");
-//        var png = canvas.toDataURL();
-//        document.getElementById("storedImage").src = png;
-        $('#storedImage').show();
+    $('#store-image-button').click(function () {
+        $('#stored-image').show();
 
         var cEle = document.getElementById('storedImage');
         var cCtx = cEle.getContext('2d');
