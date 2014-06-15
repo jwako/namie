@@ -2,6 +2,7 @@ class U::WorkController < ApplicationController
   layout "user_rtc"
   def index
   	@work = Work.find_by(url_token: params[:url_token])
+  	@weather = Weather.new(address: @work.address) if @work.address.present?
   end
 
   def thanks

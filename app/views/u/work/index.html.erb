@@ -1,24 +1,27 @@
-  <div class="pure-g" style="position:relative">
-
-      <!-- Video area -->
-      <div class="pure-u-2-3" id="video-container">
-          <video id="their-video" autoplay></video>
-          <video id="my-video" muted="true" autoplay></video>
-          <a href="#" class="pure-button pure-button-store" id="store-image-button">保存</a>
-          <canvas id="stored-image"></canvas>
-          <div id="map-canvas-current"></div>
-      </div>
-
-      <div class="pure-u-1-3">
-        <p></p>
-        現地の放射線量<br/>
-        <img src="http://www.fmu.ac.jp/home/lib/radiation/motion.jpg" style="width:240px; height:120px;">
-        <p></p>
-        <b>今日の作業</b><br/>
-        (1:自宅) 周辺確認/草刈り/花の種まき<br/>
-        (2:波江小学校) 花の種まき<br/>
-        <p></p>
-        <b>目的地</b>：浪江町権現堂北深町５<br/>
-        <div id="map-canvas-target"></div>
-      </div>
+<div class="pure-g" style="position:relative">
+  <!-- Video area -->
+  <div class="pure-u-2-3" id="video-container">
+      <video id="their-video" autoplay></video>
+      <video id="my-video" muted="true" autoplay></video>
+      <a href="#" class="pure-button pure-button-store" id="store-image-button">保存</a>
+      <canvas id="stored-image"></canvas>
+      <div id="map-canvas-current"></div>
   </div>
+
+  <div class="pure-u-1-3">
+    <h3>現地の放射線量</h3>
+    <img src="http://www.fmu.ac.jp/home/lib/radiation/motion.jpg" style="width:240px; height:120px;" class="img-thumbnail">
+
+    <h3>現地の天気: <%= @forecast.try(:weather) %>, <%= @forecast.try(:temperature) %></h3>
+
+    <h3>今日の作業</h3>
+    <ul>
+    <% @work.commissions.each do |commission| %>
+      <li><%= commission.name %></li>
+    <% end %>
+    </ul>
+
+    <h3>目的地: <%= @work.address %></h3>
+    <div id="map-canvas-target"></div>
+  </div>
+</div>
