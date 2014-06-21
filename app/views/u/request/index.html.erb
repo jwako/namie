@@ -7,44 +7,46 @@
         <h3 class="box-title">訪問依頼</h3>
       </div><!-- /.box-header -->
       <!-- form start -->
-      <%= form_for(@work, url: u_request_confirm_path) do |f| %>
-        <form role="form">
-          <div class="box-body">
-            <div class="form-group">
-              <label for="exampleInputEmail1">訪問日時</label>
-              <%= f.datetime_select :start_at %>
+      <%= form_for(@work, url: u_request_confirm_path, html: { role: 'form' }) do |f| %>
+        <div class="box-body">
+          <div class="form-group">
+            <label for="exampleInputEmail1">訪問日時</label>
+            <div class='input-group date datepicker'>
+              <%= f.text_field :start_at, class: 'form-control' %>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">訪問場所</label>
-              <%= f.text_field :address, class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">依頼内容(オプション)</label>
-              <% Commission.all.each do |c| %>
-                <div class="checkbox">
-                  <label>
-                    <%= check_box_tag "commissions[]", c.id %> <%= c.name %>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">この人にお願いする</label>
-              <%= select :area, :name, Area.all.map{|t| [t.name, t.id]} %>
+          </div>
 
-              <% Supporter.order(:id).each do |s| %>
-                <div class="radiobutton">
-                  <label>
-                    <%= f.radio_button :supporter_id, s.id %>
-                    <%= image_tag s.profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %>
-                    <%= s.profile.name %>
-                  </label>
-                </div>
-              <% end %>
-            </div>
-            <div class="box-footer clearfix">
-              <%= f.submit "確認", class: "btn btn-lg btn-primary pull-right" %>
-            </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">訪問場所</label>
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">依頼内容(オプション)</label>
+            <% Commission.all.each do |c| %>
+              <div class="checkbox">
+                <label>
+                  <%= check_box_tag "commissions[]", c.id %> <%= c.name %>
+                </label>
+              </div>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">この人にお願いする</label>
+            <%= select :area, :name, Area.all.map{|t| [t.name, t.id]} %>
+
+            <% Supporter.order(:id).each do |s| %>
+              <div class="radiobutton">
+                <label>
+                  <%= f.radio_button :supporter_id, s.id %>
+                  <%= image_tag s.profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %>
+                  <%= s.profile.name %>
+                </label>
+              </div>
+            <% end %>
+          </div>
+          <div class="box-footer clearfix">
+            <%= f.submit "確認", class: "btn btn-lg btn-primary pull-right", data: { disable_with: '' } %>
           </div>
         </div>
       <% end %>

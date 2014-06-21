@@ -67,3 +67,5 @@ gem 'unicorn'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
