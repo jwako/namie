@@ -35,7 +35,7 @@
             <label for="exampleInputEmail1">この人にお願いする</label>
             <%= select :area, :name, [['全地域', nil]] + (Area.all.map{|t| [t.name, t.id]}) %>
 
-            <% Supporter.order(:id).limit(30).each do |s| %>
+            <% Supporter.order(:id).limit(10).each do |s| %>
               <div class="radiobutton">
                 <label>
                   <%= f.radio_button :supporter_id, s.id %>

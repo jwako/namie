@@ -17,9 +17,12 @@ Rails.application.routes.draw do
 
   devise_for :supporters
   namespace :s do
-	  resource :home, controller: :home, only: :show
+    resource :home, controller: :home, only: :show
     resource :profiles, only: [:edit, :update]
     resources :work, only: :show
-	end
+  end
 
+  namespace 'api', :module => 'api' do
+    get 'supporter_list' => 'supporter#list'
+  end
 end
