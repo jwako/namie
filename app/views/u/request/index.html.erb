@@ -11,15 +11,15 @@
         <div class="box-body">
           <div class="form-group">
             <label for="exampleInputEmail1">訪問日時</label>
-            <div class='input-group date datepicker'>
-              <%= f.text_field :start_at, class: 'form-control' %>
+            <div class='input-group datepicker'>
+              <%= f.text_field :start_at, class: 'form-control', placeholder: '訪問してもらいたい日時を入力' %>
               <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
           </div>
 
           <div class="form-group">
             <label for="exampleInputEmail1">訪問場所</label>
-            <%= f.text_field :address, class: "form-control" %>
+            <%= f.text_field :address, class: "form-control", placeholder: 'ご自宅のご住所等、訪問してもらいたい場所を入力' %>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">依頼内容(オプション)</label>
@@ -33,14 +33,30 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">この人にお願いする</label>
-            <%= select :area, :name, Area.all.map{|t| [t.name, t.id]} %>
+            <%= select :area, :name, [['全地域', nil]] + (Area.all.map{|t| [t.name, t.id]}) %>
 
-            <% Supporter.order(:id).each do |s| %>
+            <% Supporter.order(:id).limit(30).each do |s| %>
               <div class="radiobutton">
                 <label>
                   <%= f.radio_button :supporter_id, s.id %>
                   <%= image_tag s.profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %>
-                  <%= s.profile.name %>
+                  <%= s.profile.name %><br />
+                  <% if s.services.size > 0 %>
+                    対応可能スケジュール：<br />
+                    <ul>
+                    <% s.services.each do |serv| %>
+                      <li><%= serv.week.name %>：<%= serv.start_time %> ~ <%= serv.end_time %></li>
+                    <% end %>
+                    </ul>
+                  <% end %>
+                  <% if s.commissions.size > 0 %>
+                    対応可能内容
+                    <ul>
+                    <% s.commissions.each do |com| %>
+                      <li><%= com.name %></li>
+                    <% end %>
+                    </ul>
+                  <% end %>
                 </label>
               </div>
             <% end %>

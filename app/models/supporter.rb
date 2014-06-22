@@ -13,11 +13,15 @@ class Supporter < ActiveRecord::Base
   has_many :supporter_services
   has_many :weeks, :through => :supporter_services
   has_many :works
-  
+
   after_create :create_profile
 
   def profile
     supporter_profile
+  end
+
+  def services
+    supporter_services
   end
 
   private

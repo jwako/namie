@@ -48,6 +48,8 @@ group :test, :development do
   gem 'quiet_assets'
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'faker'
+  gem 'faker-japanese'
 end
 
 group :test do
