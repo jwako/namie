@@ -70,46 +70,29 @@ s1 = Supporter.create(
 )
 s1.supporter_profile.update_attributes(
   profile_image: "avatar2.png",
-  name: "浪江 次郎"
+  name: "浪江 次郎",
+  description: "よろしくお願いします。"
 )
 s1.supporter_areas.create(
   area_id: Area.order("RANDOM()").first.id
 )
-
-s2 = Supporter.create(
-  email: "s2@namie.jp", 
-  password: '11111111'
+w = Week.order("RANDOM()").first.id
+s1.supporter_services.create(
+  week_id: w,
+  start_time: [*6..10].sample,
+  end_time: [*16..23].sample
 )
-s2.supporter_profile.update_attributes(
-  profile_image: "avatar3.png",
-  name: "伊藤 園"
+s1.supporter_services.create(
+  week_id: Week.where.not(id: w).order("RANDOM()").first.id,
+  start_time: [*6..10].sample,
+  end_time: [*16..23].sample
 )
-s2.supporter_areas.create(
-  area_id: Area.order("RANDOM()").first.id
+c = Commission.order("RANDOM()").first.id
+s1.supporter_commissions.create(
+  commission_id: c,
 )
-
-s3 = Supporter.create(
-  email: "s3@namie.jp", 
-  password: '11111111'
-)
-s3.supporter_profile.update_attributes(
-  profile_image: "avatar4.png",
-  name: "佐藤 文"
-)
-s3.supporter_areas.create(
-  area_id: Area.order("RANDOM()").first.id
-)
-
-s4 = Supporter.create(
-  email: "s4@namie.jp", 
-  password: '11111111'
-)
-s4.supporter_profile.update_attributes(
-  profile_image: "avatar5.png",
-  name: "内藤 博文"
-)
-s4.supporter_areas.create(
-  area_id: Area.order("RANDOM()").first.id
+s1.supporter_commissions.create(
+  commission_id: Commission.where.not(id: c).order("RANDOM()").first.id,
 )
 
 (1..100).each do |i|
@@ -135,20 +118,22 @@ s4.supporter_areas.create(
   s.supporter_areas.create(
     area_id: Area.order("RANDOM()").first.id
   )
+  w = Week.order("RANDOM()").first.id
   s.supporter_services.create(
-    week_id: Week.order("RANDOM()").first.id,
+    week_id: w,
     start_time: [*6..10].sample,
     end_time: [*16..23].sample
   )
   s.supporter_services.create(
-    week_id: Week.order("RANDOM()").first.id,
+    week_id: Week.where.not(id: w).order("RANDOM()").first.id,
     start_time: [*6..10].sample,
     end_time: [*16..23].sample
   )
+  c = Commission.order("RANDOM()").first.id
   s.supporter_commissions.create(
-    commission_id: Commission.order("RANDOM()").first.id,
+    commission_id: c,
   )
   s.supporter_commissions.create(
-    commission_id: Commission.order("RANDOM()").first.id,
+    commission_id: Commission.where.not(id: c).order("RANDOM()").first.id,
   )
 end

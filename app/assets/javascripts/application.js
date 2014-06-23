@@ -17,9 +17,17 @@
 //= require jquery.readyselector
 //= require moment
 //= require bootstrap-datetimepicker
+//= require underscore
+//= require u/request
 
-var data = {'data-date-format': 'YYYY-MM-DD HH:mm:ss' };
 $(function(){
+  _.templateSettings = {
+    "interpolate": /\{\{=(.+?)\}\}/g,
+    "escape": /\{\{-(.+?)\}\}/g,
+    "evaluate": /\{\{(.+?)\}\}/g
+  };
+
+  var data = {'data-date-format': 'YYYY-MM-DD HH:mm:ss' };
   $('.datepicker').attr(data);
   $('.datepicker').datetimepicker();
 });
