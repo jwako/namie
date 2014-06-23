@@ -1,4 +1,4 @@
-$('.request.index').ready ->
+$('.request.index, .request.complete').ready ->
   generate_supporter_list = (json) ->
     $('.supporterList:first').empty()
     $.each(json, (i, data) ->

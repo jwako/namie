@@ -7,7 +7,16 @@
         <h3 class="box-title">訪問依頼</h3>
       </div><!-- /.box-header -->
       <!-- form start -->
-      <%= form_for(@work, url: u_request_confirm_path, html: { role: 'form' }) do |f| %>
+      <%= form_for(@work, url: u_request_complete_path, html: { role: 'form' }) do |f| %>
+        <% if @work.errors.any? %>
+          <div class="alert alert-danger">
+            <ul>
+              <% @work.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
         <div class="box-body">
           <div class="form-group">
             <label for="exampleInputEmail1">訪問日時</label>
@@ -49,7 +58,7 @@
             </table>
           </div>
           <div class="box-footer clearfix">
-            <%= f.submit "確認", class: "btn btn-lg btn-primary pull-right", data: { disable_with: '' } %>
+            <%= f.submit "登録", class: "btn btn-lg btn-primary pull-right", data: { disable_with: '', confirm: "登録を確定します" } %>
           </div>
         </div>
       <% end %>

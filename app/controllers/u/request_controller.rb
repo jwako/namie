@@ -5,16 +5,13 @@ class U::RequestController < ApplicationController
     @work = Work.new
   end
 
-  def confirm
+  def complete
     @work = Work.new(work_params)
     @work.commissions = Commission.find(params[:commissions]) if params[:commissions].present?
     @work.user = current_user
 
     return render :index unless @work.valid?
     @work.save!
-  end
-
-  def complete
     redirect_to u_request_thanks_path
   end
 

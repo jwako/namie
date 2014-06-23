@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      work: 依頼
+    attributes:
+      work:
+        supporter: サポーター
+        start_at: 訪問日時
+        address: 訪問場所

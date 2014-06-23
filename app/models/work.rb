@@ -5,6 +5,8 @@ class Work < ActiveRecord::Base
 	has_many :commissions, :through => :work_commissions
 
   validates :supporter, :presence => true
+  validates :start_at, :presence => true
+  validates :address, :presence => true
   validates_uniqueness_of :url_token
   validates_presence_of :url_token
   after_initialize :set_url_token
