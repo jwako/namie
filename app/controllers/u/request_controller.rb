@@ -12,6 +12,14 @@ class U::RequestController < ApplicationController
 
     return render :index unless @work.valid?
     @work.save!
+
+    begin
+      NotifyEventMailer.notify_register_user(@work).deliver
+      NotifyEventMailer.notify_register_supporter(@work).deliver
+    rescue => e
+      logger.info e.to_s
+    end
+
     redirect_to u_request_thanks_path
   end
 

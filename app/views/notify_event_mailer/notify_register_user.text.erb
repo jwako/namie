@@ -1,0 +1,15 @@
+<%= @user.email %> さん、
+
+ご登録ありがとうございます。
+新しい訪問依頼が作成されました。
+マイページにアクセスして、詳細をご確認ください。
+<%= root_url %>
+
+========
+依頼内容
+========
+開始日時: <%= @work.start_at.strftime("%Y/%m/%d %H:%M") %>
+終了日時: <%= @work.end_at.strftime("%Y/%m/%d %H:%M") %>
+
+当日のURLはこちらになります。
+<%= u_work_url(@work.url_token) %>
