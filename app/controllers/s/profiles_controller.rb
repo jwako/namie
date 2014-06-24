@@ -1,4 +1,5 @@
 class S::ProfilesController < ApplicationController
+  before_action :authenticate_supporter!
 	layout "supporter"
 	before_filter :setup_profile
 

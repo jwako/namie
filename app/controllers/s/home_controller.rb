@@ -1,4 +1,5 @@
 class S::HomeController < ApplicationController
+  before_action :authenticate_supporter!
 	layout "supporter"
 
   def show

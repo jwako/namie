@@ -1,4 +1,5 @@
 class S::WorkController < ApplicationController
+  before_action :authenticate_supporter!
 	layout "supporter_rtc"
 
   def show

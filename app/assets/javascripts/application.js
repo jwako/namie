@@ -20,12 +20,13 @@
 //= require underscore
 //= require u/request
 
+_.templateSettings = {
+  "interpolate": /\{\{=(.+?)\}\}/g,
+  "escape": /\{\{-(.+?)\}\}/g,
+  "evaluate": /\{\{(.+?)\}\}/g
+};
+
 $(function(){
-  _.templateSettings = {
-    "interpolate": /\{\{=(.+?)\}\}/g,
-    "escape": /\{\{-(.+?)\}\}/g,
-    "evaluate": /\{\{(.+?)\}\}/g
-  };
 
   var data = {'data-date-format': 'YYYY-MM-DD HH:mm:ss' };
   $('.datepicker').attr(data);

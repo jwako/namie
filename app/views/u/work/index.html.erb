@@ -1,9 +1,9 @@
-<div class="pure-g" style="position:relative">
+<div class="pure-g" style="position:relative" id="peerId" data-peer-id="<%= @work.url_token + '_user' %>" data-peer-target-id="<%= @work.url_token + '_supporter' %>">
   <!-- Video area -->
   <div class="pure-u-2-3" id="video-container">
       <video id="their-video" autoplay></video>
       <video id="my-video" muted="true" autoplay></video>
-      <a href="#" class="pure-button pure-button-store" id="store-image-button">保存</a>
+      <!-- <a href="#" class="pure-button pure-button-store" id="store-image-button">保存</a> -->
       <canvas id="stored-image"></canvas>
       <div id="map-canvas-current"></div>
   </div>

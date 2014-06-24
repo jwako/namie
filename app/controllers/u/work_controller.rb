@@ -1,4 +1,6 @@
 class U::WorkController < ApplicationController
+  before_action :authenticate_user!
+
   layout "user_rtc"
   def index
   	@work = Work.find_by(url_token: params[:url_token])

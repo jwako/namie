@@ -4,33 +4,34 @@
 
     // Compatibility shim
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
-// PeerJS object
-var peer = new Peer(peer_id_task_request, { key: skyway_apikey, debug: 3});
-
-peer.on('open', function(){
-    <!--
-  $('#my-id').text(peer.id);
-  -->
-});
-
-// Receiving a call
-peer.on('call', function(call){
-    // Answer the call automatically (instead of prompting user) for demo purposes
-    call.answer(window.localStream);
-    step3(call);
-});
-peer.on('error', function(err){
-    alert(err.message);
-    // Return to step 2 if error occurs
-    step2();
-});
+var peer;
 
 // Click handlers setup
 $(function(){
+    // PeerJS object
+    peer = new Peer($('#peerId').attr('data-peer-id'), { key: skyway_apikey, debug: 3});
+
+    peer.on('open', function(){
+        <!--
+      $('#my-id').text(peer.id);
+      -->
+    });
+
+    // Receiving a call
+    peer.on('call', function(call){
+        // Answer the call automatically (instead of prompting user) for demo purposes
+        call.answer(window.localStream);
+        step3(call);
+    });
+    peer.on('error', function(err){
+        alert(err.message);
+        // Return to step 2 if error occurs
+        step2();
+    });
+
     $('#make-call').click(function(){
         // Initiate a call!
-        var call = peer.call(peer_id_task_worker, window.localStream);
+        var call = peer.call($('#peerId').attr('data-peer-target-id'), window.localStream);
 
         step3(call);
     });
