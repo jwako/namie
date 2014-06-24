@@ -14,8 +14,8 @@ class U::RequestController < ApplicationController
     @work.save!
 
     begin
-      NotifyEventMailer.notify_register_user(@work).deliver
-      NotifyEventMailer.notify_register_supporter(@work).deliver
+      # NotifyEventMailer.notify_register_user(@work).deliver
+      # NotifyEventMailer.notify_register_supporter(@work).deliver
     rescue => e
       logger.info e.to_s
     end

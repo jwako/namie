@@ -97,7 +97,7 @@ s1.supporter_commissions.create(
 
 (1..100).each do |i|
   u = User.create(
-    email: Faker::Internet.email,
+    email: "user#{i}@namie.jp",
     password: '11111111'
   )
   u.user_profile.update_attributes(
@@ -106,7 +106,7 @@ s1.supporter_commissions.create(
   )
 
   s = Supporter.create(
-    email: Faker::Internet.email,
+    email: "s_#{i+1}@namie.jp",
     password: '11111111'
   )
   name = Faker::Japanese::Name.name

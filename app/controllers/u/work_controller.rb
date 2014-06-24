@@ -13,8 +13,8 @@ class U::WorkController < ApplicationController
     @work.save
 
     begin
-      NotifyEventMailer.notify_complete_user(@work).deliver
-      NotifyEventMailer.notify_complete_supporter(@work).deliver
+      # NotifyEventMailer.notify_complete_user(@work).deliver
+      # NotifyEventMailer.notify_complete_supporter(@work).deliver
     rescue => e
       logger.info e.to_s
     end
