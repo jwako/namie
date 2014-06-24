@@ -2,9 +2,10 @@
   <div class="col-md-12">
     <div class="box">
     <div class="box-header">
-    <h3 class="box-title">あなたに依頼されているお仕事の一覧</h3>
+    <h3 class="box-title">サポーターマイページ</h3>
     </div><!-- /.box-header -->
     <div class="box-body">
+      <h4>現在依頼されている訪問</h4>
       <table class="table table-striped">
       <tr>
         <th class="col-lg-3 text-center">開始日時</th>
@@ -13,7 +14,7 @@
         <th class="col-lg-2 text-center">依頼者</th>
         <th class="col-lg-2 text-center"></th>
       </tr>
-      <% @works.each do |work| %>
+      <% @works.where(is_finished: nil).order('start_at').each do |work| %>
       <tr>
         <td class="text-center"><%= work.start_at.try(:strftime, "%Y/%d/%m %H:%M") %> 〜 <%= work.end_at.try(:strftime, "%H:%M") %></td>
         <td><%= work.address %></td>
@@ -25,8 +26,8 @@
         </ul>
         </td>
         <td class="text-center">
-        <%= image_tag work.user.user_profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %><br>
-        <%= work.user.email %>
+        <%= image_tag work.user.profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %><br>
+        <%= work.user.profile.name %>
         </td>
         <td class="text-center">
           <%= link_to s_work_path(work.url_token), class: "btn btn-lg btn-primary" do %>
@@ -36,6 +37,37 @@
       </tr>
       <% end %>
       </table>
+      <h4>完了した訪問</h4>
+      <table class="table table-striped">
+      <tr>
+        <th class="col-lg-3 text-center">開始日時</th>
+        <th class="col-lg-3 text-center">依頼場所</th>
+        <th class="col-lg-2 text-center">依頼内容</th>
+        <th class="col-lg-2 text-center">依頼者</th>
+        <th class="col-lg-2 text-center">お礼のメッセージ</th>
+      </tr>
+      <% @works.where(is_finished: true).order('start_at').each do |work| %>
+      <tr>
+        <td class="text-center"><%= work.start_at.try(:strftime, "%Y/%d/%m %H:%M") %> 〜 <%= work.end_at.try(:strftime, "%H:%M") %></td>
+        <td><%= work.address %></td>
+        <td>
+        <ul class="list-unstyled">
+        <% work.commissions.each do |c| %>
+          <li><span class="label label-success"><i class="fa fa-tag"></i> <%= c.name %></span></li>
+        <% end %>
+        </ul>
+        </td>
+        <td class="text-center">
+        <%= image_tag work.user.profile.profile_image, class: "img-circle", alt: "User Image", size: "75x75" %><br>
+        <%= work.user.profile.name %>
+        </td>
+        <td class="text-center">
+          <%= work.greeting_message %>
+        </td>
+      </tr>
+      <% end %>
+      </table>
+
     </div><!-- /.box-body -->
     <div class="box-footer clearfix">
     </div>

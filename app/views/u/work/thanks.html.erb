@@ -8,7 +8,12 @@
       <h4>ご利用ありがとうございました。</h4>
       <h4>完了メールをお送りしました。</h4>
       <h4><%= @work.supporter.profile.name %>さんにお礼を伝えてみませんか？</h4>
-      <h4><input type="text" size="30" placeholder="ありがとうございました" /><input type="submit" value="送信" /></h4>
+      <h4>
+        <%= form_for(@work, url: u_work_thanks_post_path, html: { role: 'form' }) do |f| %>
+          <%= f.text_field :greeting_message, placeholder: 'メッセージを入力', html: { value: @work.greeting_message } %>
+          <%= f.submit "登録", data: { disable_with: '' } %>
+        <% end %>
+      </h4>
       <h4><%= link_to 'マイページに戻る', u_home_path %></h4>
     </div><!-- /.box-body -->
   </div>

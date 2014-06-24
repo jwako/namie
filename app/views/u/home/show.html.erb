@@ -15,7 +15,7 @@
         <th class="col-lg-2 text-center">サポーター</th>
         <th class="col-lg-2 text-center"></th>
       </tr>
-      <% @works.where(is_finished: nil).each do |work| %>
+      <% @works.where(is_finished: nil).order('start_at').each do |work| %>
       <tr>
         <td class="text-center"><%= work.start_at.try(:strftime, "%Y/%d/%m %H:%M") %> 〜 <%= work.end_at.try(:strftime, "%H:%M") %></td>
         <td><%= work.address %></td>
@@ -47,7 +47,7 @@
         <th class="col-lg-2 text-center">サポーター</th>
         <th class="col-lg-2 text-center"></th>
       </tr>
-      <% @works.where(is_finished: true).each do |work| %>
+      <% @works.where(is_finished: true).order('start_at').each do |work| %>
       <tr>
         <td class="text-center"><%= work.start_at.try(:strftime, "%Y/%d/%m %H:%M") %> 〜 <%= work.end_at.try(:strftime, "%H:%M") %></td>
         <td><%= work.address %></td>
@@ -63,9 +63,12 @@
         <%= work.supporter.profile.name %>
         </td>
         <td class="text-center">
+          <%= work.greeting_message %>
+          <!--
           <%= link_to u_work_path(work.url_token), class: "btn btn-lg btn-primary" do %>
             <i class="fa fa-video-camera"></i> 訪問の振り返り
           <% end %>
+          -->
         </td>
       </tr>
       <% end %>
