@@ -28,6 +28,7 @@ class Weather
 		end
 
 		def weather
+			return "" unless data
 			case data.icon
 			when 'clear-day'
 				return "晴れ"
@@ -55,6 +56,7 @@ class Weather
 		end
 
 		def weather_icon
+			return "" unless data
 			case data.icon
 			when 'clear-day'
 				return "wi-day-sunny"
@@ -82,13 +84,14 @@ class Weather
 		end
 
 		def temperature
+			return "" unless data
 			data.temperature.round.to_s + "℃"
 		end
 
 		private 
 
 		def data
-			@subject.currently
+			@subject.currently if @subject
 		end
 
 	end
